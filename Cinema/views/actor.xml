@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- actor tree view -->
+    <record id="actor_tree" model="ir.ui.view">
+        <field name="name">actor.movie.tree</field>
+        <field name="model">cinema.actor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="movie_id"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <!-- cinema.actor form view -->
+    <record id="actor_form" model="ir.ui.view">
+        <field name="name">actor.movie.form</field>
+        <field name="model">cinema.actor</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                    </group>
+
+                    <group>
+                        <field name="movie_id"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="actor_action" model="ir.actions.act_window">
+        <field name="name">Actor</field>
+        <field name="res_model">cinema.actor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="cinema_root" name="Cinema Club"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="cinema_actor_root" name="Actor" parent="cinema_root"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="cinema_actor" name="Actor List" parent="cinema_actor_root" action="actor_action"/>
+</odoo>

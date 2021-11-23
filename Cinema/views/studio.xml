@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- model.name action window -->
+    <record id="studio_action" model="ir.actions.act_window">
+        <field name="name">Studio</field>
+        <field name="res_model">cinema.studio</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="cinema_root" name="Cinema Club"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="cinema_studio_root" name="Studio" parent="cinema_root"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="cinema_studio" name="Studio List" parent="cinema_studio_root" action="studio_action"/>
+</odoo>

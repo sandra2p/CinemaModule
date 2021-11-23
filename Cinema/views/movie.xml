@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- model.name tree view -->
+    <record id="movie_tree" model="ir.ui.view">
+        <field name="name">cinema.movie.tree</field>
+        <field name="model">cinema.movie</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="actor_ids"/> 
+                <field name="description"/>                
+                <field name="year"/>
+                <field name="premiereDate"/> 
+                <field name="genres"/> 
+                <field name="studios_ids"/>
+
+
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- model.name form view -->
+    <record id="movies_form" model="ir.ui.view">
+        <field name="name">cinema.movie.form</field>
+        <field name="model">cinema.movie</field>
+        <field name="arch" type="xml">
+            <form string="Movies form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="year"/>   
+                            <field name="premiereDate"/>  
+                        </group>
+                        <group> 
+                            <field name="actor_ids"/>  
+                            <field name="genres"/> 
+                            <field name="studios_ids"/>
+                        </group>
+                        <notebook>
+                                <page string="Descripcion">
+                                    <field name="description"/>
+                                </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- model.name search view -->
+    <record id="movies_search" model="ir.ui.view">
+        <field name="name">cinema.movie.search</field>
+        <field name="model">cinema.movie</field>
+        <field name="arch" type="xml">
+            <search string="Search:">
+
+                <field name="year"/>
+                <field name="title"/>
+                <field name="genres"/> 
+                
+            </search>
+        </field>
+    </record>
+
+    <!-- model.name calendar view -->
+    <record id="movie_calendar" model="ir.ui.view">
+        <field name="name">cinema.movie.calendar</field>
+        <field name="model">cinema.movie</field>
+        <field name="arch" type="xml">
+            <calendar string="PremierDate" date_start="premiereDate">
+                <field name="premiereDate"/> 
+                
+            </calendar>
+        </field>
+    </record>
+
+    <!-- model.name action window -->
+    <record id="movie_action" model="ir.actions.act_window">
+        <field name="name">Movie</field>
+        <field name="res_model">cinema.movie</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="cinema_root" name="Cinema Club"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="cinema_movie_root" name="Movie" parent="cinema_root"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="cinema_movie" name="Movies List" parent="cinema_movie_root" action="movie_action"/>
+
+
+</odoo>
