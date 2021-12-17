@@ -9,6 +9,10 @@
                 <field name="name"/>
                 <field name="age"/>
                 <field name="movie_id"/>
+                <field name="ganancias_peliculas"/>
+                <field name="ganancias_publi"/>
+                <field name="ganancias_interviews"/>
+                <field name="media_ganancias"/>
                 
             </tree>
         </field>
@@ -24,6 +28,13 @@
                     <group>
                         <field name="name"/>
                         <field name="age"/>
+                    </group>
+                    
+                    <group>
+                        <field name="ganancias_peliculas"/>
+                        <field name="ganancias_publi"/>
+                        <field name="ganancias_interviews"/>
+                        <field name="media_ganancias"/>
                     </group>
 
                     <group>
