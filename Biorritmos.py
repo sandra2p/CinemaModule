@@ -2,8 +2,6 @@ from datetime import date
 import math
 
 
-today = date.today()
-
 birthday = int(input("Your Birth Day: "))
 birthmonth = int(input("Your Birth Month: "))
 birthyear = int(input("Your Birth Year: "))
